@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// import TwoWayBinding from './TwoWayBinding';
+// import StateAndLifecycle from './components/StateAndLifecycle';
+import { WeatherApp } from './containers/';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<WeatherApp />, document.getElementById('root'));
+// ReactDOM.render(<StateAndLifecycle />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

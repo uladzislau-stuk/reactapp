@@ -1,23 +1,45 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
+# Production
+/build
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
 /.pnp
 .pnp.js
 
-# testing
-/coverage
+# Optional npm cache directory
+.npm
 
-# production
-/build
+# Optional REPL history
+.node_repl_history
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# User specific project settings for WebIDE
+.user.project.json
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# IDE project settings
+.classpath
+.project
+.settings
+.idea
+.metadata
+*.iml
+*.ipr
+
+# Test folders
+src/components/StateAndLifeCycle
+src/components/TwoWayBinding
