@@ -38,5 +38,5 @@ node_modules
 *.ipr
 
 # Test folders
-/src/components/StateAndLifeCycle
-/src/components/TwoWayBinding
+src/components/StateAndLifeCycle
+src/components/TwoWayBinding
