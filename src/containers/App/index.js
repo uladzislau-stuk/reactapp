@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import './styles/index.scss';
 import { WeatherView } from '../../components/views/';
 
-import { fetchWeatherForecast } from '../../core/actions';
+import { fetchWeatherForecast, fetchLocationAddress } from '../../core/actions';
 
 const mapStateToProps = (state) => ({
+	locationName: state.locationAddress.locationName,
 	weather: state.weatherForecast.weather,
 	error: state.weatherForecast.error
 });
@@ -13,6 +14,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 	fetchWeatherForecast: (latlon) => {
 		dispatch(fetchWeatherForecast(latlon));
+	},
+	fetchLocationAddress: (latlon) => {
+		dispatch(fetchLocationAddress(latlon));
 	}
 });
 

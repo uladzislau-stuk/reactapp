@@ -5,7 +5,6 @@ const
 
 const initialState = {
 	weather: {
-		city: '',
 		time: 0,
 		currentWeather: null,
 		nextWeekWeather: null
