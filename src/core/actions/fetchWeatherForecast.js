@@ -18,8 +18,6 @@ export const fetchWeatherForecast = (latlon) => (dispatch) => {
 				daily: { data : forecast }
 			} = res;
 
-			const city = timezone.split('/')[1];
-
 			let newForecast = Array.from(forecast).slice(1);
 
 			let time = Number(moment().tz(timezone).format('x'));
@@ -48,7 +46,7 @@ export const fetchWeatherForecast = (latlon) => (dispatch) => {
 				};
 			});
 
-			dispatch(fetchWeatherForecastSuccess({ city, time, currentWeather, nextWeekWeather }));
+			dispatch(fetchWeatherForecastSuccess({ time, currentWeather, nextWeekWeather }));
 		}).catch(e => {
 			dispatch(fetchWeatherForecastError(`ERROR(${e.code}): ${e.message}`));
 		});

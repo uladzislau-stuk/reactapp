@@ -10,7 +10,7 @@ import { Button, Card, CardActions, CardContent, Collapse, Divider } from "@mate
 import { CurrentWeather, ForecastList, Search } from '../../ui/';
 
 const language = '&language=en',
-	token = 'AIzaSyBKhHBmWIuN8B6Q2BoxWLxwnaR1CbXoQGo',
+	token = 'AIzaSyDlhehh40RYYTEvf21S_uljFjPcV8MSfro',
 	googleApiUrl = `https://maps.googleapis.com/maps/api/js?key=${token}${language}&libraries=places`;
 
 class Weather extends Component {
@@ -23,8 +23,9 @@ class Weather extends Component {
 			expanded: true
 		};
 
-		let { fetchWeatherForecast } = props;
+		let { fetchWeatherForecast, fetchLocationAddress } = props;
 		this._fetchWeatherForecast = fetchWeatherForecast;
+		this._fetchLocationAddress = fetchLocationAddress;
 	}
 
 	componentWillMount() {
@@ -60,8 +61,10 @@ class Weather extends Component {
 
 		const success = (pos) => {
 			let crd = pos.coords,
-				latlon = `${crd.latitude},${crd.longitude}`;
-			this._fetchWeatherForecast(latlon);
+				latlng = `${crd.latitude},${crd.longitude}`;
+
+			this._fetchLocationAddress(latlng);
+			this._fetchWeatherForecast(latlng);
 		};
 		const error = (e) => {
 			console.warn(`ERROR(${e.code}): ${e.message}`);
@@ -91,6 +94,7 @@ class Weather extends Component {
 		const { geometry: { location: { lat, lng }}} = place ; // as lat and lng func
 		const latlng = `${lat()},${lng()}`;
 
+		this._fetchLocationAddress(latlng);
 		this._fetchWeatherForecast(latlng);
 	};
 
@@ -109,12 +113,12 @@ class Weather extends Component {
 	};
 
 	render() {
-		const { weather } = this.props;
-		const { city, currentWeather, nextWeekWeather } = weather;
+		const { locationName: city, weather } = this.props;
+		const { currentWeather, nextWeekWeather } = weather;
 
 		const { visible, expanded } = this.state;
 
-		if (!weather.city) {
+		if (!weather.time) {
 			return null;
 		}
 
