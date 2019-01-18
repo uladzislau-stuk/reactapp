@@ -1,0 +1,23 @@
+:local {
+	.forecast {
+		padding: 0 0 1.6rem 0;
+
+		div {
+			display: flex;
+		}
+
+		div > span:first-child {
+			flex-grow: 1;
+		}
+
+		div > span:last-child {
+			text-align: right;
+			flex: 0 0 6rem;
+			padding: 0 0 0 1rem;
+		}
+
+		div:not(:last-child) {
+			margin-bottom: 1.2rem;
+		}
+	}
+}
