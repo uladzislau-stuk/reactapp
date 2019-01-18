@@ -1,5 +1,5 @@
-import { fetchLocationWeather } from './featchLocationWeather';
+import { fetchWeatherForecast } from './fetchWeatherForecast';
 
 export {
-	fetchLocationWeather
+	fetchWeatherForecast
 }

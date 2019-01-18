@@ -1,5 +1,5 @@
-import WeatherApp from './WeatherApp';
+import Weather from './App';
 
 export {
-	WeatherApp
+	Weather as App
 }
